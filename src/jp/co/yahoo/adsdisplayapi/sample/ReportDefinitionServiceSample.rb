@@ -20,7 +20,7 @@ opts = {
             operand: [
                 OpenapiClient::ReportDefinition.new(
                     fields: ['IMPS', 'CLICK'],
-                    date_range_type: OpenapiClient::ReportDefinitionServiceDateRangeType::YESTERDAY,
+                    report_date_range_type: OpenapiClient::ReportDefinitionServiceReportDateRangeType::YESTERDAY,
                     report_name: 'Report Sample'
                 )
             ]
@@ -49,9 +49,9 @@ opts = {
 
 begin
   result = api_instance.report_definition_service_get_post(opts)
-  job_status = result.rval.values[0].report_definition.job_status
+  job_status = result.rval.values[0].report_definition.report_job_status
   num = 0
-  while job_status != OpenapiClient::ReportDefinitionServiceJobStatus::COMPLETED do
+  while job_status != OpenapiClient::ReportDefinitionServiceReportJobStatus::COMPLETED do
     sleep(1)
     result = api_instance.report_definition_service_get_post(opts)
     job_status = result.rval.values[0].report_definition.report_job_status

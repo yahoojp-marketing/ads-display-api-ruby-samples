@@ -24,7 +24,7 @@ opts = {
             account_id: conf["account_id"],
             operand: [
                 OpenapiClient::ReportDefinition.new(
-                    fields: ['IMPS', 'CLICK'],
+                    fields: ['IMPS', 'CLICKS'],
                     report_date_range_type: OpenapiClient::ReportDefinitionServiceReportDateRangeType::YESTERDAY,
                     report_name: 'Report Sample'
                 )
